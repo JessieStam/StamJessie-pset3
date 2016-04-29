@@ -14,26 +14,62 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:weightSum="1">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#494b4b"
-            android:foregroundTint="#494b4b"
+            android:background="#494b4b"
             android:layout_gravity="center_horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="TO DO"
-                android:backgroundTint="#494b4b"
+                android:text="@string/to_do_title"
+                android:textColor="#FFFFFF"
                 android:textSize="60sp"
                 android:padding="10dp"
-                android:id="@+id/textView"
+                android:id="@+id/to_do_title"
                 android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="@string/remove_instruct"
+            android:textColor="#A4A4A4"
+            android:id="@+id/remove_instruct"
+            android:layout_gravity="center_horizontal" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="312dp"
+            android:padding="10dp"
+            android:id="@+id/screen_list_view" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="1">
+
+            <EditText
+                android:layout_width="187dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/user_todo_input"
+                android:layout_weight="0.93" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_todo"
+                android:id="@+id/add_todo_button"
+                android:onClick="addToList"/>
         </LinearLayout>
 
     </LinearLayout>
