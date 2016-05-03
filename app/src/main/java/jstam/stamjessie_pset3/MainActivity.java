@@ -8,14 +8,17 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import android.app.ListActivity;
+import android.widget.TextView;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<String> todo_list = new ArrayList<String>();
-    // hier zit nog een error
-    private ListView screen_list = new ListView();
-    private ArrayAdapter<String> todoAdapter = new ArrayAdapter<String>
+    ArrayList<String> todo_list = new ArrayList<>();
+    // ListView screen_list = new ListView(this);
+    ArrayAdapter<String> todoAdapter = new ArrayAdapter<>
             (this, android.R.layout.simple_list_item_1, todo_list);
+    final EditText user_input = (EditText)findViewById(R.id.user_todo_input);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,16 +28,26 @@ public class MainActivity extends AppCompatActivity {
 
     public void addToList(View view) {
 
-        // get user input and add to the todo_list list
-        EditText user_input = (EditText)findViewById(R.id.user_todo_input);
-        todo_list.add(user_input.toString());
-
-        // define the listview
-        screen_list = (ListView) findViewById(R.id.screen_list_view);
+        ListView screen_list = (ListView) findViewById(R.id.screen_list_view);
 
         // use adapter to put todo_list information to screen_list
         screen_list.setAdapter(todoAdapter);
 
+        String todo_item = user_input.getText().toString();
+        todo_list.add(todo_item);
 
+
+        // get user input and add to the todo_list list
+        // todo_list.add(user_input.toString());
+
+        // define the ListView
+        // screen_list = (ListView) findViewById(R.id.screen_list_view);
+
+        // screen_list.setAdapter(todoAdapter);
+
+        // this method will refresh your listview manually
+        todoAdapter.notifyDataSetChanged();
     }
+
+
 }
