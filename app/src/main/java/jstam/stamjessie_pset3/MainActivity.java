@@ -3,6 +3,7 @@ package jstam.stamjessie_pset3;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -22,24 +23,43 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
-
-    public void addToList(View view) {
 
         user_input = (EditText) findViewById(R.id.user_todo_input);
         screen_list = new ListView(this);
         screen_list = (ListView) findViewById(R.id.screen_list_view);
-        todo_item = user_input.getText().toString();
         todoAdapter = new ArrayAdapter<>
                 (this, android.R.layout.simple_list_item_1, todo_list);
+
+
+        /*
+         * set onclick listener for ListView items to check/uncheck them
+         */
+        screen_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+
+
+            }
+        });
+
+    }
+
+    public void addToList(View view) {
 
         // use adapter to put todo_list information to screen_list
         screen_list.setAdapter(todoAdapter);
 
+        todo_item = user_input.getText().toString();
+
+        // add user input to ListView
         todo_list.add(todo_item);
 
-        // this method will refresh your listview manually
+        // refresh ListView
         todoAdapter.notifyDataSetChanged();
+
+        // write some code that cleans the EditText
 
     }
 }
