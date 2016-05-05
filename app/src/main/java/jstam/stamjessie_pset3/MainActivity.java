@@ -1,12 +1,15 @@
 package jstam.stamjessie_pset3;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -18,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
     EditText user_input;
     String todo_item;
+    String selected_item;
+    public View row;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +45,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+                screen_list.getChildAt(position).setBackgroundColor(Color.GRAY);
+
+                if (row != null) {
+                    row.setBackgroundResource(android.R.color.darker_gray);
+                }
+                row = v;
+                v.setBackgroundResource(android.R.color.darker_gray);
+
+                // selected_item = todoAdapter.getItem(position);
 
             }
         });
