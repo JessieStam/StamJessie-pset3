@@ -3,4 +3,6 @@
     <string name="add_todo">Add ToDo</string>
     <string name="remove_instruct">Long-press an item to remove it.</string>
     <string name="to_do_title">TO DO</string>
+    <string name="hint_land">To-do? Who do? You do! Add to-do here.</string>
+    <string name="hint">To Do: add To Do to this line</string>
 </resources>
