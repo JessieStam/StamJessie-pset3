@@ -13,7 +13,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<String> todo_list = new ArrayList<>();
+    ArrayList<String> todo_list;
+    ArrayList<String> todo_list_save;
     ListView screen_list;
     ArrayAdapter<String> todoAdapter;
 
@@ -22,21 +23,18 @@ public class MainActivity extends AppCompatActivity {
     String currentColor;
     String finished = "finished";
     String unfinished = "unfinished";
-    Integer position;
-    Integer color;
-
-
-    public void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        // This bundle has also been passed to onCreate.
-        position = savedInstanceState.getInt("Position");
-        color = savedInstanceState.getInt("Color");
-    }
+    ListView item_list;
 
     @Override
-    protected void onCreate(Bundle onRestoreInstanceState) {
-        super.onCreate(onRestoreInstanceState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if(savedInstanceState == null) {
+            todo_list = new ArrayList<>();
+        } else {
+            todo_list = savedInstanceState.getStringArrayList("todo_list");
+        }
 
         user_input = (EditText) findViewById(R.id.user_todo_input);
         screen_list = new ListView(this);
@@ -44,11 +42,6 @@ public class MainActivity extends AppCompatActivity {
         todoAdapter = new ArrayAdapter<>
                 (this, android.R.layout.simple_list_item_1, todo_list);
         currentColor = unfinished;
-
-        if(onRestoreInstanceState != null) {
-            position = onRestoreInstanceState.getInt("Position");
-            color = onRestoreInstanceState.getInt("Color");
-        }
 
         /*
          * set onclick listener for ListView items to check/uncheck them
@@ -69,7 +62,26 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
 
+        todo_item = user_input.getText().toString();
+        // item_list = screen_list;
+        // todo_list_save = todo_list.get.toStringArrayList();
+
+        outState.putString("todo_item", todo_item);
+        outState.putStringArrayList("todo_list", todo_list_save);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle saveInstanceState) {
+        super.onRestoreInstanceState(saveInstanceState);
+
+        user_input.setText(saveInstanceState.getString(todo_item));
+        //item_list = saveInstanceState.getString(item_list);
+        todo_list = saveInstanceState.getStringArrayList("todo_list");
+    }
 
     public void addToList(View view) {
 
