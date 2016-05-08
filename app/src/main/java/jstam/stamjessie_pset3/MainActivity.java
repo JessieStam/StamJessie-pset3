@@ -100,9 +100,8 @@ public class MainActivity extends AppCompatActivity {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
+        // save to-do items
         todo_item = user_input.getText().toString();
-        // item_list = screen_list;
-        // todo_list_save = todo_list.get.toStringArrayList();
 
         outState.putString("todo_item", todo_item);
         outState.putStringArrayList("todo_list", todo_list_save);
@@ -115,8 +114,8 @@ public class MainActivity extends AppCompatActivity {
     public void onRestoreInstanceState(Bundle saveInstanceState) {
         super.onRestoreInstanceState(saveInstanceState);
 
+        // restore to-do items
         user_input.setText(saveInstanceState.getString(todo_item));
-        //item_list = saveInstanceState.getString(item_list);
         todo_list = saveInstanceState.getStringArrayList("todo_list");
     }
 
