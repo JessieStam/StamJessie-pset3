@@ -11,3 +11,8 @@ the Database Helper and the Main Acitivity altogether. In my opinion it was more
 link the files and submit something that doesn't work at all. I did finish the Database Helper, so I hope you will still take a look at it.
 I hope you can give me some feedback, since I find it really hard to link files and to understand how this works. Thanks in advance!
 
+![alt tag](https://github.com/JessieStam/StamJessie-pset3/blob/master/ToDoScreen1.bmp)
+![alt tag](https://github.com/JessieStam/StamJessie-pset3/blob/master/ToDoScreen3.bmp)
+![alt tag](https://github.com/JessieStam/StamJessie-pset3/blob/master/ToDoScreen4.bmp)
+![alt tag](https://github.com/JessieStam/StamJessie-pset3/blob/master/ToDoScreen5.bmp)
+![alt tag](https://github.com/JessieStam/StamJessie-pset3/blob/master/ToDoScreen6.bmp)
