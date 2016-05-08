@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     String currentColor;
     String finished = "finished";
     String unfinished = "unfinished";
-    ListView item_list;
+    Integer id = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
 
         // refresh ListView
         todoAdapter.notifyDataSetChanged();
+
+        id = id + 1;
 
         // write some code that cleans the EditText
 
